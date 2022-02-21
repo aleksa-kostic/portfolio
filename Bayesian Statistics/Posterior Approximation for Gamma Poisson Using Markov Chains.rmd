@@ -1,0 +1,79 @@
+---
+title: "Posterior Approximation for Gamma Poisson Using Markov Chains"
+author: "Aleksa Kostic"
+date: "2/3/2022"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE}
+library(bayesplot)
+library(bayesrules)
+library(rstan)
+library(tidyverse)
+```
+
+$$
+\lambda \sim \text{Gamma}(20,5)
+\\
+Y_i|\lambda \sim \text{Pois}(\lambda)
+\\
+n = 3
+\\
+(Y_1,Y_2,Y_3) = (0,1,0)
+$$
+
+## Model
+
+```{r}
+gp_model <- "
+data{
+  int<lower=0> Y[3];
+}
+parameters {
+  real<lower=0> lambda;
+}
+model{
+  lambda ~ gamma(20,5);
+  Y ~ poisson(lambda);
+}
+"
+```
+
+
+```{r}
+gp_sim <- stan(
+  model_code = gp_model, data = list(Y = c(0,1,0)),
+  chains = 4, iter = 5000*2, seed = 84735, refresh=FALSE
+)
+```
+
+## Check for convergence
+
+```{r}
+mcmc_trace(gp_sim, pars="lambda", size = 0.1)
+```
+
+```{r}
+mcmc_dens_overlay(gp_sim, pars = "lambda") +
+  ylab("density")
+```
+
+
+The most plausible value for lambda seems to be around 2.5. 
+
+## Seeing if formula calculation matches simulation
+
+The posterior distribution of $\lambda|\vec{Y}$ also follows a gamma distribution but one that has a smaller variance and a mean at around 2.5. 
+
+```{r}
+summarize_gamma_poisson(shape=20,rate=5,sum_y=1,n=3)
+```
+
+$\lambda|\vec{y} \sim \text{Gamma}(21,8)$
+ 

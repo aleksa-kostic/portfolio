@@ -1,0 +1,40 @@
+---
+title: "Beta-Binomial Analysis Example"
+author: "Aleksa Kostic"
+date: "2/20/2022"
+output:
+  pdf_document: default
+  html_document: default
+---
+```{r, echo=FALSE}
+library(bayesrules)
+```
+
+$$
+\text{prior:} \quad \pi \sim \text{Beta}(\alpha=3, \beta = 17)
+$$
+
+```{r}
+plot_beta(3,17)
+```
+
+Sample of 90 people where there are 30 successes for the binomial (with probability pi, which follows the beta distribution).
+
+$$
+\text{posterior:} \quad \pi|(Y=y) \sim \text{Beta}(\alpha + y,\, \beta + n - y)
+$$
+
+$$
+\pi|(Y=30) \sim \text{Beta}(\alpha = 33, \beta = 77) \quad \text{where } n = 90
+$$
+
+```{r}
+summarize_beta(33,77)
+```
+
+
+```{r}
+plot_beta_binomial(3,17,y=30,n=90)
+```
+
+The posterior model more closely reflect the data. Based on the plot for the posterior distribution versus the prior distribution, the posterior distribution more closely resembles the data distribution, which would be the (scaled) likelihood plot. Also, the maximum likelihood estimate of the the parameter is $\hat{\pi} = 30/90 = 0.\overline{33}$. The original expected value of $\pi$ was $E(\pi) = \frac{3}{3 \, + \, 17} = 0.15$ and the posterior expected value of $\pi$ is $E(\pi\,|\,Y=30) = \frac{3 \, + \, 30}{3\, +\,17\,+\,90} = 0.30$. And clearly 0.30 is closer to 0.33 than 0.15. 

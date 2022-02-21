@@ -1,0 +1,86 @@
+---
+title: "Inference Prediction and Hypothesis Testing with Odds"
+author: "Aleksa Kostic"
+date: "2/20/2022"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE}
+library(bayesrules)
+library(tidyverse)
+library(rstan)
+library(bayesplot)
+library(broom.mixed)
+library(janitor)
+```
+
+
+$$
+\text{Prior: }\pi \sim \text{Beta}(1,0.8)
+$$
+
+$$
+\text{Posterior: } \pi \sim \text{Beta}(4,3)
+$$
+
+Wanna test $H_0 \leq 0.4$ versus $H_{a} > 0.4$
+
+## Posterior Probability 
+
+Posterior probability for the alternative hypothesis: is 82.08%
+
+```{r}
+post_prob <- pbeta(0.4, 4,3, lower.tail = FALSE)
+post_prob
+```
+
+## Posterior Odds
+
+Posterior odds: 4.580357
+
+```{r}
+post_odds <- post_prob/(1-post_prob)
+post_odds
+```
+
+The posterior assessment is that pi is 4.5 times more likely to be above 0.4 than to be less than 0.4.
+
+## Prior Probability and Odds
+
+Prior odds: 1.98098
+
+```{r}
+prior_prob <- pbeta(0.4, 1, 0.8, lower.tail = FALSE)
+prior_odds <- prior_prob/(1-prior_prob)
+prior_odds
+```
+
+The prior odds of pi being greater than 0.4 were also above 1, at nearly 2, so it was twice as likely to be above 0.4 than it was to be below 0.4
+
+## Bayes Factor
+
+Bayes Factor: 2.312168
+
+```{r}
+bayes_fact <- post_odds/prior_odds
+bayes_fact
+```
+
+The plausibility of the alternative hypothesis has increase in light of the observed data. While the prior odds indicated that the alternative was more likely, the posterior odds confirmed that assessment (not changing our view entirely, but adding more confirming evidence).
+
+## Analysis
+
+The posterior probability and Bayes Factor establish fairly convincing evidence in favor of the claim that the mean is greater than 0.4. 
+
+Basically, in light of the evidence that we collected, we've updated our understading of the characteristics of pi, as in where its average lies and how much that can vary. 
+
+Before gathering evidence, we believed that the probability of pi being greater than 0.4 was 66%. After gathering evidence and updating our understanding of pi, we believe that the probability of pi being greater than 0.4 is 82%. 
+
+As such, we understand that the posterior probability of pi being greater than 0.4 is greater than the prior probability. So, the plausibility of the speculation that pi is greater than 0.4, as opposed to its originally assumed to being less than or equal to 0.4, has increased with the new evidence. 
+
