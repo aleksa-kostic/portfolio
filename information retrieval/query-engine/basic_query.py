@@ -1,2 +1,0 @@
-# basic_query.py
-

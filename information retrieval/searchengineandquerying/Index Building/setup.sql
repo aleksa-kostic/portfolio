@@ -10,7 +10,6 @@ CREATE TABLE IF NOT EXISTS Tokens
     file        VARCHAR(5),
     frequency    INTEGER,
     PRIMARY KEY (Token, fullPath)
-    -- tf_idf score
 );
 
 CREATE EXTENSION IF NOT EXISTS pg_trgm ;
