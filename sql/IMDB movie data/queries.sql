@@ -1,12 +1,10 @@
--- Ensure script can be graded even if one function doesn't work.
--- You are welcome to turn this on for debugging purposes.
+
 SET check_function_bodies = off;
 
 CREATE FUNCTION question3a()
 RETURNS BIGINT
 LANGUAGE SQL
 AS $$
-	-- Finish the example code here! --
 
 	SELECT COUNT(tconst)
 	FROM titleBasics;
@@ -212,6 +210,10 @@ AS $$
 $$;
 
 /*
+
+---INDEX CREATION AND TIME COMPARISONS---
+
+
 CREATE INDEX spiderman ON titlebasics (primarytitle, titletype, startyear);
 CREATE INDEX
 Time: 35571.781 ms (00:35.572)
@@ -234,7 +236,7 @@ WHERE primarytitle = 'Spider-Man' AND titletype = 'movie';
 Time: 2.231 ms
 
 
-
+--- COMPARING THE TIME WHEN THE INDEX IS REMOVED ---
 
 
 DROP INDEX spiderman;
