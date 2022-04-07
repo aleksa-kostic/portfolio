@@ -12,4 +12,4 @@ This repository contains work that I have produced in gathering Reddit submissio
 Our next step is to create a binary classification model using machine learning techniques. After this, we'll evaluate our models, improve upon them, and give our final report. 
 Additionally, we will use AWS to create a cloud-based postgreSQL database to store our data as it is currently nearing a couple gigabytes in memory. 
 
-- Aleksa Kostic April 6, 2022 (22:59 PCT)
+-- Aleksa Kostic April 6, 2022 (22:59 PCT)
