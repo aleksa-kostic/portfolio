@@ -1,4 +1,4 @@
-# portfolio-march-2022
+# portfolio-april-2022
 
 ## Navigation
 
@@ -13,6 +13,7 @@ Machine Learning:
 
 SQL:
 > Files 'queries.sql' and 'setup.sql' contain a sample of SQL used in data analysis for an assignment. However, a few projects such as in the ```Information Retrieval``` directory also utilize SQL (see ```searchengineandquerying``` within the aforementioned directory)
+> For more SQL-like examples, please check visualizations to see use of SQL-like commands to group, select, and aggregate data.
 
 Visualizations:
 > A couple small visualization projects using Python's Seaborn library
