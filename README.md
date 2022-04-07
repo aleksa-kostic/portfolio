@@ -2,7 +2,7 @@
 
 ## Navigation
 
-Capstone (ongoing):
+**Capstone** (ongoing):
 > Contains the current state of my ongoing data science capstone project. This will be updated weekly. Contains PDFs of jupyter notebooks, jupyter notebooks, CSV files, Word2Vec model files, and figure PNGs
 
 Bayesian Statistics:
