@@ -15,14 +15,12 @@
 
 ## data
 
-> CSV
-  > CSV files
-  > CSV.GZ files
-  > dataframes for processing or later uploaded to SQL
-> PKL
-  > PKL files
-  > PKL.GZ files
-  > large object files for use in processing
+> CSV files
+> CSV.GZ files
+> dataframes for processing or later uploaded to SQL
+> PKL files
+> PKL.GZ files
+> large object files for use in processing
 
 ## figures
 
