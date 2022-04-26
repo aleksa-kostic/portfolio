@@ -14,13 +14,14 @@
   7. ```SQL Scratchpaper and SQL Upload.ipynb```
 
 ## data
-
-> CSV files
-> CSV.GZ files
-> dataframes for processing or later uploaded to SQL
-> PKL files
-> PKL.GZ files
-> large object files for use in processing
+> CSV
+- ```.CSV``` files
+- ```.CSV.GZ``` files
+- dataframes for processing or later uploaded to SQL
+> PKL
+- ```.PKL``` files
+- ```.PKL.GZ``` files
+- large object files for use in processing
 
 ## figures
 
@@ -29,16 +30,16 @@
 
 ## models
 
-> gensim.Word2Vec models 
+> ```gensim.Word2Vec``` models 
 >   54 models in [5,...,10] windows, [2,...,4] minimum words, [5,10,15] epochs
 
 ## notebook_pdfs
 
-> PDF versions of the ```.ipynb``` notebooks from earlier
+> ```.PDF``` versions of the ```.ipynb``` notebooks from earlier
 
 ## sql
 
-> SQL files corresponding to our existing PostgreSQL AWS RDS
+> ```.SQL``` files corresponding to our existing PostgreSQL AWS RDS
 
 
 -Aleksa Kostic. April 25, 2022 (17:09)
