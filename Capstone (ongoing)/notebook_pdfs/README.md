@@ -1,4 +1,4 @@
-> Order in which notebooks were developed:
+Order in which notebooks were developed:
   1. ```Submissions Gathering.pdf```
   2. ```Subreddit Comment Gathering.pdf```
   3. ```Inverse_Dictionary_Builder.pdf```
