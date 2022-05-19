@@ -25,10 +25,10 @@
 >> Set of 25 classes of training images for building the CNN
 
 > ```./hanzicnn/```
-> Contains the models (under ```./hanzicnn/models/```) and loss-accuracy data (under ```./hanzicnn/data```
+> Contains the ```.pth``` model ```state_dicts``` under ```./hanzicnn/models/``` and loss-accuracy data under ```./hanzicnn/data```
 
 > ```./hanziff/```
-> Contains the models (under ```./hanziff/models/```) and loss-accuracy data (under ```./hanziff/data```
+> Contains the ```.pth``` model ```state_dicts``` under ```./hanziff/models/``` and loss-accuracy data under ```./hanziff/data```
 
 ## Members and contributions:
 Aleksa Kostic (myself)
