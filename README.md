@@ -1,8 +1,10 @@
-# portfolio-april-2022
+# Aleksa Kostic: portfolio
 
 ## Navigation
 
-[**Capstone**](https://github.com/aleksa-kostic/portfolio-april-2022/tree/main/Capstone%20(ongoing)) (ongoing):
+
+
+[**Capstone**](https://github.com/aleksa-kostic/portfolio-april-2022/tree/main/Capstone):
 > Contains the current state of my ongoing data science capstone project. This will be updated weekly. Contains PDFs of jupyter notebooks, jupyter notebooks, CSV files, Word2Vec model files, and figure PNGs
 
 **Bayesian Statistics**:
