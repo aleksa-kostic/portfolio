@@ -3,11 +3,11 @@ RETURNS double precision
 LANGUAGE SQL
 AS 
 $$
-	SELECT x.tv AS t_value 
-	FROM (SELECT ROW_NUMBER() OVER (ORDER BY "t975" DESC) AS row_num,
-		"t975" as tv
-		FROM t_table) as x
-	WHERE x.row_num=n;
+select x.tv as t_value FROM (
+    select ROW_NUMBER() OVER (ORDER BY "t975" DESC) AS row_num,
+        "t975" as tv
+    FROM t_table) as x
+WHERE x.row_num=n;
 $$
 ;
 
@@ -17,29 +17,29 @@ LANGUAGE SQL
 AS 
 $$
 SELECT e.tvalue > t_val(e.t_::int) as signficance
-	FROM (SELECT (d.post_avg - d.pre_avg) / SQRT((d.var_samp_pre/d.pre_count) + (d.var_samp_post/d.post_count)) as tvalue,
-	ABS(d.pre_count + d.post_count -2) as t_
-		FROM
-		(SELECT AVG(x."Play Rate") as pre_avg,
-		AVG(y."Play Rate") as post_avg, 
-		count(x) as pre_count,
-		COUNT(y) as post_count,
-		VAR_SAMP(x."Play Rate") as var_samp_pre,
-		VAR_SAMP(y."Play Rate") as var_samp_post
-			FROM 
-		 	(SELECT * 
-				FROM playrates
-				WHERE "Date" > ymd::date - INTERVAL '7 day'
-				AND "Date" <= ymd::date
-				AND "Champion" = champ) 
-		AS x,
-			(SELECT * 
-				FROM playrates
-				WHERE "Date" > ymd::date
-				AND "Date" <= ymd::date + INTERVAL '7 day'
-				AND "Champion" = champ)
-		AS y)
-	AS d)
+    FROM (SELECT (d.post_avg - d.pre_avg) / SQRT((d.var_samp_pre/d.pre_count) + (d.var_samp_post/d.post_count)) as tvalue,
+    ABS(d.pre_count + d.post_count -2) as t_
+        FROM
+        (SELECT pr.avgpr as pre_avg,
+		 po.avgpo as post_avg,
+        pr.cntpr pre_count,
+        po.cntpo as post_count,
+        pr.vspr as var_samp_pre,
+        po.vspo as var_samp_post
+            FROM
+             (SELECT COUNT("date") cntpr, var_samp(playrate) vspr, avg(playrate) avgpr
+                FROM playrates
+                WHERE "date" > ymd::date - INTERVAL '7 day'
+                AND "date" <= ymd::date
+                AND "champion" = champ)
+        AS pr,
+            (SELECT COUNT("date") cntpo, var_samp(playrate) vspo, avg(playrate) avgpo
+                FROM playrates
+                WHERE "date" > ymd::date
+                AND "date" <= ymd::date + INTERVAL '7 day'
+                AND "champion" = champ)
+		as po)
+    AS d)
 AS e;
 $$;
 
