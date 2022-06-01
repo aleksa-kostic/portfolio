@@ -1,5 +1,9 @@
 # Capstone Navigation
 
+## ```Final Report.pdf```
+
+> The project is complete and details can be found within the uploaded report.
+
 ## completed_notebooks
 
 > ```.ipynb``` files that have served their purpose
@@ -42,4 +46,4 @@
 > ```.SQL``` files corresponding to our existing PostgreSQL AWS RDS
 
 
--Aleksa Kostic. April 25, 2022 (17:09)
+-Aleksa Kostic. May 31, 2022
