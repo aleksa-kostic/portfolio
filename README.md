@@ -3,7 +3,7 @@
 ## Navigation
 
 **NEW**! **[Chinese Character Recognizer Project](https://github.com/aleksa-kostic/portfolio/tree/main/Chinese%20Character%20Recognition%20Project)**:
-> A recent project completed in roughly four weeks as of May 17, 2022. Implementing a CNN via PyTorch and GUI via Tkinter for drawing classification to guess Chinese characters. 
+> A recent project completed with a final report as of June 1, 2022. Implementing a CNN via PyTorch and GUI via Tkinter for drawing classification to guess Chinese characters. 
 
 [**Capstone**](https://github.com/aleksa-kostic/portfolio/tree/main/Capstone):
 > Contains the my data science capstone project (ended May 31, 2022). This will be updated weekly. Contains PDFs of the final report, jupyter notebooks, CSV files, Word2Vec model files, and figure PNGs
